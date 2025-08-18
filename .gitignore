@@ -1,0 +1,33 @@
+# Node dependencies
+node_modules/
+client/node_modules/
+
+# Vite cache
+.vite/
+client/.vite/
+
+# Build outputs (if any)
+dist/
+client/dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/
+
+# Local databases
+server/blog.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
