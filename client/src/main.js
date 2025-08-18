@@ -2,6 +2,8 @@ import './assets/main.css';
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import App from './App.vue';
+import store from './store/index.js';
+
 
 const LandingPage = () => import('./components/LandingPage.vue');
 
@@ -22,4 +24,5 @@ const router = createRouter({
 
 createApp(App)
   .use(router)
+  .use(store)
   .mount('#app');

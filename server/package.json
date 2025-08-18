@@ -1,0 +1,24 @@
+{
+  "name": "isabellablog-server",
+  "version": "1.0.0",
+  "description": "Backend server for Isabella's Travel Blog using Express and SQLite",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "express",
+    "sqlite",
+    "blog",
+    "backend"
+  ],
+  "author": "Amelia Johnston",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.6"
+  }
+}

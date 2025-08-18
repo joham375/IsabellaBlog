@@ -1,8 +1,9 @@
 <template>
-    <div class="register-page">
-        <h1>Register</h1>
-        <!-- Registration form will go here -->
-    </div>
+  <form @submit.prevent="signup">
+    <input v-model="username" placeholder="Username" />
+    <input v-model="password" placeholder="Password" type="password" />
+    <button type="submit">Sign Up</button>
+  </form>
 </template>
 
 <script>
@@ -10,11 +11,21 @@ export default {
     name: 'RegisterPage',
     data() {
         return {
-            // form fields go here
+            username: "",
+            email: "",
+            password: ""
         };
     },
     methods: {
-        // form submission logic goes here
+        async signup() {
+            const res = await fetch("http://localhost:5001/api/signup", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username: this.username, password: this.password }),
+            });
+            const data = await res.json();
+            alert(data.message || data.error);
+        }
     }
 };
 </script>
