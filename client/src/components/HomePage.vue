@@ -1,15 +1,16 @@
 <template>
   <div class="home-page">
     <div class="content">
-      <img src="../../placeholder.jpg" alt="Placeholder Image" />
+      <img src="../../placeholder.jpg" alt="Placeholder Image" class="image"/>
       <div class="about">
         <h2>Title {{ siteTitle }}</h2>
-        <p>Description{{ siteDescription }}</p>
+        <p>Description {{ siteDescription }}</p>
         <div class="fav-pics">
-          <img src="../../placeholder.jpg" alt="Favorite Pictures" />
+          <img src="../../placeholder.jpg" alt="Favorite Pictures" class="image"/>
         </div>
       </div>
     </div>
+
     <div class="blog-posts">
       <h2>Fav Blog Posts</h2>
       <ul class="fav-posts">
@@ -18,6 +19,7 @@
         <li><img src="../../placeholder.jpg" alt="Blog Post 3" />Blog Post 3</li>
       </ul>
     </div>
+
     <div class="blog-posts">
       <h2>Recent Blog Posts</h2>
       <ul class="recent-posts">
@@ -56,7 +58,7 @@ export default {
 };
 </script>
 
-<style scope lang="scss">
+<style scoped lang="scss">
 .home-page {
   display: flex;
   flex-direction: column;
@@ -64,33 +66,64 @@ export default {
   padding: 2rem;
   min-width: 100vw;
   overflow: auto;
+  margin-top: 2rem;
+
   .content {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+
     .about {
-      background-color: var(--tertiary-colour);
-      min-width: 40%;
+      border: 1px solid var(--border-colour);
+      flex: 1 1 300px;
       margin: 1rem;
-      padding: 5rem;
+      padding: 2rem;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .image {
+      max-width: 300px;
+      height: auto;
+      border-radius: 8px;
     }
   }
+
   .blog-posts {
     margin-top: 2rem;
     width: 100%;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
     ul {
       list-style: none;
       padding: 0;
       display: flex;
-      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: flex-start;
+
       li {
-        width: 10rem;
-        height: 10rem;
-        margin: 1rem;
-        padding: 0.5rem 0;
+        flex: 1 1 calc(25% - 1rem);
+        min-width: 150px;
+        max-width: 200px;
+        height: auto;
+        padding: 1rem;
         background-color: var(--tertiary-colour);
-        border-bottom: 1px solid var(--border-colour);
-        img{
-            max-width: 8rem;
+        border: 1px solid var(--border-colour);
+        border-radius: 8px;
+        text-align: center;
+
+        img {
+          max-width: 100%;
+          height: auto;
+          margin-bottom: 0.5rem;
+          border-radius: 4px;
         }
       }
     }

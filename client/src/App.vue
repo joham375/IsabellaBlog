@@ -25,7 +25,8 @@ export default {
 <style>
 #app{
   min-width: 100vw;
-  overflow: auto;
+  overflow-x: hidden;
+  margin: 1rem;
 }
 header {
   position: fixed;

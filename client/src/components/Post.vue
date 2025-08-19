@@ -3,6 +3,8 @@
         <!-- Post content goes here -->
         <h1>{{ post.title }}</h1>
         <p>{{ post.content }}</p>
+
+        <button v-if="isOwner" @click="editPost">Edit</button>
     </div>
 </template>
 
@@ -17,11 +19,15 @@ export default {
             post: {
                 title: 'Sample Post Title',
                 content: 'This is the content of the sample post.'
-            }
+            },
+            isOwner: true
         };
     },
     methods: {
-        // Component methods
+        editPost() {
+            // Handle edit post logic
+            this.$router.push(`/Post/${this.post.id}/edit`);
+        }
     }
 };
 </script>

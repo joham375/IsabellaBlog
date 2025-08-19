@@ -1,11 +1,13 @@
 <template>
-  <form @submit.prevent="login">
-    <input v-model="username" placeholder="Username" type="text" />
-    <input v-model="password" placeholder="Password" type="password" />
-    <button type="submit">Login</button>
-    <div v-if="error" class="error">{{ error }}</div>
-    <a href="/RegisterPage">Don't have an account? Sign up</a>
-  </form>
+  <div class="container">
+    <form @submit.prevent="login" class="login">
+      <input v-model="username" placeholder="Username" type="text" />
+      <input v-model="password" placeholder="Password" type="password" />
+      <button type="submit">Login</button>
+      <div v-if="error" class="error">{{ error }}</div>
+      <a href="/RegisterPage">Don't have an account? Sign up</a>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -29,6 +31,7 @@ export default {
         localStorage.setItem("token", data.token);
         alert("Logged in as " + data.username);
         this.$store.commit("setUser", { username: data.username });
+        this.$router.push({ path: "/HomePage" });
       } else {
         alert(data.error);
       }
@@ -37,40 +40,14 @@ export default {
 };
 </script>
 
-<style scoped>
-.login-page {
-  max-width: 400px;
-  margin: 2rem auto;
-  padding: 2rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-.login-page h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-.login-page form > div {
-  margin-bottom: 1rem;
-}
-.login-page label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.login-page input {
-  width: 100%;
-  padding: 0.5rem;
-  box-sizing: border-box;
-}
-.login-page button {
-  width: 100%;
-  padding: 0.75rem;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.login-page button:hover {
-  background: #0056b3;
+<style scoped lang="scss">
+.container {
+  background-color: red;
+  min-width: 50%;
+  min-height: 50%;
+  margin: auto;
+  padding: 10rem;
+  display: flex;
+  justify-content: center;
 }
 </style>

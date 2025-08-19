@@ -2,7 +2,11 @@
   <div class="blog">
     <h1>Blog Component</h1>
     <ul class="blog-posts">
-      <li v-for="post in posts" :key="post.id" @click.stop.prevent="goToPost(post.id)">
+      <li 
+        v-for="post in posts" 
+        :key="post.id" 
+        @click.stop.prevent="goToPost(post.id)"
+      >
         <h2>{{ post.title }}</h2>
         <p>{{ post.content }}</p>
       </li>
@@ -41,19 +45,44 @@ export default {
 
 <style scoped lang="scss">
 .blog {
-  padding: 1rem;
-  height: 30rem;
+  padding: 2rem;
+
+  h1 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
   .blog-posts {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    min-width: 90vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
     li {
-      min-width: 10rem;
-      height: 10rem;
-      list-style: none;
-      margin: 1rem;
       background-color: var(--primary-colour);
+      padding: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      h2 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.2rem;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        color: #333;
+      }
     }
   }
 }

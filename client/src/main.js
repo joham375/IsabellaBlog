@@ -14,7 +14,8 @@ const routes = [
   { path: '/HomePage', component: () => import('./components/HomePage.vue') },
   { path: '/IzzyPortal', component: () => import('./components/IzzyPortal.vue') },
   { path: '/Post/:id', component: () => import('./components/Post.vue') },
-  { path: '/Blog', component: () => import('./components/Blog.vue') }
+  { path: '/Blog', component: () => import('./components/Blog.vue') },
+  { path: '/Profile', component: () => import('./components/Profile.vue') }
 ];
 
 const router = createRouter({

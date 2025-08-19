@@ -1,11 +1,12 @@
 <template>
   <header class="header">
-    <h1>Izzy Blog</h1>
+    <h1 v-if="loggedIn" @click.stop.prevent="goTo('HomePage')">Izzy Blog</h1>
+    <h1 v-if="!loggedIn" @click.stop.prevent="goTo('')">Izzy Blog</h1>
     <div class="buttons">
-      <button @click.stop.prevent="goTo('HomePage')">Home</button>
-      <button @click.stop.prevent="goTo('Blog')">Blog</button>
-      <button @click.stop.prevent="goTo('Profile')">Profile</button>
-      <button @click.stop.prevent="goTo('IzzyPortal')">IzzyPortal</button>
+      <button v-if="loggedIn" @click.stop.prevent="goTo('HomePage')">Home</button>
+      <button v-if="loggedIn" @click.stop.prevent="goTo('Blog')">Blog</button>
+      <!-- <button @click.stop.prevent="goTo('Profile')">Profile</button> -->
+      <button v-if="izzyAccount" @click.stop.prevent="goTo('IzzyPortal')">IzzyPortal</button>
       <button v-if="loggedIn" @click.stop.prevent="signOut">Sign Out</button>
       <button v-else @click.stop.prevent="goTo('LoginPage')">Login</button>
     </div>
@@ -17,7 +18,8 @@ export default {
   name: "Header",
   data() {
     return {
-      loggedIn: false,
+      loggedIn: true,
+      izzyAccount: true,
     };
   },
   methods: {
